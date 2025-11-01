@@ -101,8 +101,57 @@ const financingTasks = [
         stateDate: "October 22, 2025 9:02 PM",
         documents: "-",
         dueDate: "-",
+        hasWarning: false,
+    },
+    {
+        team: "Underwriting",
+        assignedTo: "ASSIGN ADVISOR",
+        task: "Finance application",
+        badge: "EXT",
+        badgeColor: "bg-blue-500",
+        state: "Complete",
+        stateDate: "October 22, 2025 7:02 AM",
+        documents: "-",
+        dueDate: "-",
+        hasWarning: false,
+    },
+    {
+        team: "Underwriting",
+        assignedTo: "Abhi Shetty",
+        task: "Finance stipulation verification",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 24, 2025 6:48 PM",
+        documents: "1/1 file(s)",
+        dueDate: "-",
+        hasWarning: true,
+    },
+    {
+        team: "In-sale",
+        assignedTo: "Christian Volfson",
+        task: "Communicate decision to customer",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 24, 2025 6:48 PM",
+        documents: "-",
+        dueDate: "-",
+        hasWarning: false,
+    },
+    {
+        team: "Underwriting",
+        assignedTo: "Christian Volfson",
+        task: "Verify financing complete",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 24, 2025 6:48 PM",
+        documents: "-",
+        dueDate: "-",
+        hasWarning: false,
     }
-]
+];
 
 export default function OrderDetailsPage({
   params,
@@ -323,7 +372,13 @@ export default function OrderDetailsPage({
                       {financingTasks.map(task => (
                         <TableRow key={task.task} className="border-border">
                             <TableCell>{task.team}</TableCell>
-                            <TableCell>{task.assignedTo}</TableCell>
+                            <TableCell>
+                                {task.assignedTo === 'ASSIGN ADVISOR' ? (
+                                    <Link href="#" className="text-primary hover:underline font-semibold">{task.assignedTo}</Link>
+                                ) : (
+                                    task.assignedTo
+                                )}
+                            </TableCell>
                             <TableCell>
                                 <div className="flex items-center gap-2">
                                     <Badge className={`${task.badgeColor} text-white`}>{task.badge}</Badge>
@@ -334,11 +389,18 @@ export default function OrderDetailsPage({
                                 <div className="text-green-500">{task.state}</div>
                                 <div className="text-muted-foreground text-xs">{task.stateDate}</div>
                             </TableCell>
-                            <TableCell>{task.documents}</TableCell>
+                            <TableCell>
+                                {task.documents !== "-" ? 
+                                <Link href="#" className="text-primary hover:underline">{task.documents}</Link> 
+                                : "-"}
+                            </TableCell>
                             <TableCell>{task.dueDate}</TableCell>
                             <TableCell>
                                 <div className="flex items-center gap-2 text-muted-foreground">
-                                    <MessageSquare className="h-5 w-5" />
+                                    <div className="relative">
+                                        <MessageSquare className="h-5 w-5" />
+                                        {task.hasWarning && <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></div>}
+                                    </div>
                                     <MoreHorizontal className="h-5 w-5" />
                                 </div>
                             </TableCell>
