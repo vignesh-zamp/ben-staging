@@ -38,8 +38,10 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Task" />
     ),
     cell: ({ row }) => {
+      const task = row.original;
+      const link = task.id === 'TASK-7878' ? `/dashboard/order/${task.order}` : '#';
       return (
-        <Link href="#" className="font-medium text-primary hover:underline whitespace-nowrap">
+        <Link href={link} className="font-medium text-primary hover:underline whitespace-nowrap">
           {row.getValue('task')}
         </Link>
       );
@@ -97,8 +99,10 @@ export const columns: ColumnDef<Task>[] = [
     header: 'Customer',
     cell: ({ row }) => {
       const customer = row.getValue('customer') as {name: string, email: string};
+      const task = row.original;
+      const link = task.id === 'TASK-7878' ? `/dashboard/order/${task.order}` : '#';
       return (
-        <Link href="#" className="text-primary hover:underline whitespace-nowrap">
+        <Link href={link} className="text-primary hover:underline whitespace-nowrap">
           {customer.name}
         </Link>
       )
