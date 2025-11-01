@@ -110,7 +110,7 @@ const orderData: { [key: string]: any } = {
                 completed: '0/1',
                 status: 'Incomplete',
                 tasks: [
-                    { team: "Licensing", assignedTo: "ASSIGN ADVISOR", task: "Registration", badge: "INT", badgeColor: "bg-red-500", state: "Incomplete", stateDate: "", documents: "-", dueDate: "October 25, 2025 1:30 AM", actions: "COMPLETE", }
+                    { team: "Licensing", assignedTo: "ASSIGN ADVISOR", task: "Registration", badge: "INT", badgeColor: "bg-red-500", state: "Incomplete", stateDate: "", documents: "-", dueDate: "October 25, 2025 1:30 AM", actions: 'COMPLETE', }
                 ]
             },
             {
@@ -200,6 +200,27 @@ const orderData: { [key: string]: any } = {
                 statusColor: 'text-blue-500',
                 tasks: [
                     { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", }
+                ]
+            },
+            {
+                title: 'Deal Verification',
+                completed: '1/1',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Market supply", assignedTo: "ASSIGN ADVISOR", task: "Verify Carfax", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
+                ]
+            },
+            {
+                title: 'Vehicle Documents',
+                completed: '4/4',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Lien Check (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Proof of Ownership (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                 ]
             },
         ]
@@ -356,7 +377,7 @@ export default function OrderDetailsPage({
                                             {!task.actions && <div className="w-[84px] invisible"></div>}
                                             <div className="relative">
                                                 <MessageSquare className="h-5 w-5" />
-                                                {task.hasWarning && <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></div>}
+                                                {(task.hasWarning || task.hasNote) && <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></div>}
                                             </div>
                                             <MoreHorizontal className="h-5 w-5" />
                                         </div>
