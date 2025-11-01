@@ -6,7 +6,8 @@ import {
   MoreHorizontal,
   MessageSquare,
   CheckCircle2,
-  ChevronUp
+  ChevronUp,
+  ChevronDown,
 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -311,6 +312,34 @@ const dealVerificationTasks = [
         documents: "-",
         dueDate: "",
     },
+];
+
+const productionTasks = [
+    {
+        team: "In-sale",
+        assignedTo: "Christian Volfson",
+        task: "Good to produce",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 22, 2025 9:20 PM",
+        documents: "-",
+        dueDate: "",
+    }
+];
+
+const crosslistedVehicleTransportTasks = [
+    {
+        team: "In-sale",
+        assignedTo: "Christian Volfson",
+        task: "Transport vehicle",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Incomplete",
+        stateDate: "",
+        documents: "-",
+        dueDate: "October 25, 2025 6:48 PM",
+    }
 ];
 
 export default function OrderDetailsPage({
@@ -890,6 +919,155 @@ export default function OrderDetailsPage({
                       ))}
                   </TableBody>
               </Table>
+          </div>
+      </div>
+
+       <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Production</h2>
+              <div className="flex items-center gap-2 text-sm text-green-500 font-semibold">
+                  <CheckCircle2 className="h-4 w-4"/>
+                  <span>1/1 Tasks Complete</span>
+                  <ChevronUp className="h-4 w-4 text-muted-foreground"/>
+              </div>
+          </div>
+          <div className="p-4">
+              <Table>
+                  <TableHeader>
+                      <TableRow className="border-b-0">
+                          <TableHead className="text-muted-foreground">Team</TableHead>
+                          <TableHead className="text-muted-foreground">Assigned to</TableHead>
+                          <TableHead className="text-muted-foreground">Task</TableHead>
+                          <TableHead className="text-muted-foreground">State</TableHead>
+                          <TableHead className="text-muted-foreground">Documents</TableHead>
+                          <TableHead className="text-muted-foreground">Due Date</TableHead>
+                          <TableHead className="text-muted-foreground">Actions</TableHead>
+                          <TableHead className="text-muted-foreground">Notes</TableHead>
+                      </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      {productionTasks.map(task => (
+                        <TableRow key={task.task} className="border-border">
+                            <TableCell>{task.team}</TableCell>
+                            <TableCell>{task.assignedTo}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2">
+                                    <Badge className={`${task.badgeColor} text-white`}>{task.badge}</Badge>
+                                    <span>{task.task}</span>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                <div className="text-green-500">{task.state}</div>
+                                <div className="text-muted-foreground text-xs">{task.stateDate}</div>
+                            </TableCell>
+                            <TableCell>{task.documents}</TableCell>
+                            <TableCell>
+                                <Link href="#" className="text-primary hover:underline">Add due date</Link>
+                            </TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                    <MessageSquare className="h-5 w-5" />
+                                    <MoreHorizontal className="h-5 w-5" />
+                                </div>
+                            </TableCell>
+                            <TableCell></TableCell>
+                        </TableRow>
+                      ))}
+                  </TableBody>
+              </Table>
+          </div>
+      </div>
+
+       <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Crosslisted Vehicle Transport</h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
+                  <span>0/1 Tasks Complete</span>
+                  <ChevronUp className="h-4 w-4"/>
+              </div>
+          </div>
+          <div className="p-4">
+              <Table>
+                  <TableHeader>
+                      <TableRow className="border-b-0">
+                          <TableHead className="text-muted-foreground">Team</TableHead>
+                          <TableHead className="text-muted-foreground">Assigned to</TableHead>
+                          <TableHead className="text-muted-foreground">Task</TableHead>
+                          <TableHead className="text-muted-foreground">State</TableHead>
+                          <TableHead className="text-muted-foreground">Documents</TableHead>
+                          <TableHead className="text-muted-foreground">Due Date</TableHead>
+                          <TableHead className="text-muted-foreground">Actions</TableHead>
+                          <TableHead className="text-muted-foreground">Notes</TableHead>
+                      </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      {crosslistedVehicleTransportTasks.map(task => (
+                        <TableRow key={task.task} className="border-border">
+                            <TableCell>{task.team}</TableCell>
+                            <TableCell>{task.assignedTo}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2">
+                                    <Badge className={`${task.badgeColor} text-white`}>{task.badge}</Badge>
+                                    <span>{task.task}</span>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                <div className="text-yellow-500">{task.state}</div>
+                            </TableCell>
+                            <TableCell>{task.documents}</TableCell>
+                            <TableCell className="text-red-500">{task.dueDate}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                    <Button className="bg-green-600 hover:bg-green-700 text-white text-xs h-auto py-1 px-4">COMPLETE</Button>
+                                    <MessageSquare className="h-5 w-5" />
+                                    <MoreHorizontal className="h-5 w-5" />
+                                </div>
+                            </TableCell>
+                            <TableCell></TableCell>
+                        </TableRow>
+                      ))}
+                  </TableBody>
+              </Table>
+          </div>
+      </div>
+
+       <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Delivery</h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
+                  <span>0 tasks</span>
+                  <ChevronDown className="h-4 w-4"/>
+              </div>
+          </div>
+      </div>
+
+       <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Return</h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
+                  <span>0 tasks</span>
+                  <ChevronDown className="h-4 w-4"/>
+              </div>
+          </div>
+      </div>
+
+      <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Exchange</h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
+                  <span>0 tasks</span>
+                  <ChevronDown className="h-4 w-4"/>
+              </div>
+          </div>
+      </div>
+
+       <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Other</h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
+                  <span>0 tasks</span>
+                  <ChevronDown className="h-4 w-4"/>
+              </div>
           </div>
       </div>
 
