@@ -5,7 +5,8 @@ import {
   Clock,
   MoreHorizontal,
   MessageSquare,
-  CheckCircle2
+  CheckCircle2,
+  ChevronUp
 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -151,6 +152,76 @@ const financingTasks = [
         dueDate: "-",
         hasWarning: false,
     }
+];
+
+const contractSigningTasks = [
+    {
+        team: "In-sale",
+        assignedTo: "Christian Volfson",
+        task: "Upload signed contract",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Needs Review",
+        stateDate: "",
+        documents: "1/1 file(s)",
+        dueDate: "October 25, 2025 9:09 AM",
+        actions: "REVIEW",
+    },
+    {
+        team: "Deal fund",
+        assignedTo: "Piranave Chandraphalan",
+        task: "Verify and send BOS",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 25, 2025 4:33 AM",
+        documents: "-",
+        dueDate: "-",
+    },
+    {
+        team: "Underwriting",
+        assignedTo: "Jan Elijah Pilares",
+        task: "Finance contract generation",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 24, 2025 8:42 PM",
+        documents: "1/1 file(s)",
+        dueDate: "-",
+    },
+    {
+        team: "Underwriting",
+        assignedTo: "ASSIGN ADVISOR",
+        task: "Bill of Sale generation",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 24, 2025 8:42 PM",
+        documents: "-",
+        dueDate: "-",
+    },
+    {
+        team: "Underwriting",
+        assignedTo: "ASSIGN ADVISOR",
+        task: "Upload unsigned contract",
+        badge: "INT",
+        badgeColor: "bg-red-500",
+        state: "Complete",
+        stateDate: "October 25, 2025 4:33 AM",
+        documents: "-",
+        dueDate: "-",
+    },
+    {
+        team: "Customer",
+        assignedTo: "ASSIGN ADVISOR",
+        task: "Contract signing",
+        badge: "EXT",
+        badgeColor: "bg-blue-500",
+        state: "Complete",
+        stateDate: "October 25, 2025 5:09 AM",
+        documents: "-",
+        dueDate: "-",
+    },
 ];
 
 export default function OrderDetailsPage({
@@ -405,6 +476,79 @@ export default function OrderDetailsPage({
                                 </div>
                             </TableCell>
                              <TableCell></TableCell>
+                        </TableRow>
+                      ))}
+                  </TableBody>
+              </Table>
+          </div>
+      </div>
+
+      <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Contract Signing</h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
+                  <span>5/6 Tasks Complete</span>
+                  <ChevronUp className="h-4 w-4"/>
+              </div>
+          </div>
+          <div className="p-4">
+              <Table>
+                  <TableHeader>
+                      <TableRow className="border-b-0">
+                          <TableHead className="text-muted-foreground">Team</TableHead>
+                          <TableHead className="text-muted-foreground">Assigned to</TableHead>
+                          <TableHead className="text-muted-foreground">Task</TableHead>
+                          <TableHead className="text-muted-foreground">State</TableHead>
+                          <TableHead className="text-muted-foreground">Documents</TableHead>
+                          <TableHead className="text-muted-foreground">Due Date</TableHead>
+                          <TableHead className="text-muted-foreground">Actions</TableHead>
+                          <TableHead className="text-muted-foreground">Notes</TableHead>
+                      </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      {contractSigningTasks.map(task => (
+                        <TableRow key={task.task} className="border-border">
+                            <TableCell>{task.team}</TableCell>
+                            <TableCell>
+                                {task.assignedTo === 'ASSIGN ADVISOR' ? (
+                                    <Link href="#" className="text-primary hover:underline font-semibold">{task.assignedTo}</Link>
+                                ) : (
+                                    task.assignedTo
+                                )}
+                            </TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2">
+                                    <Badge className={`${task.badgeColor} text-white`}>{task.badge}</Badge>
+                                    <span>{task.task}</span>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                {task.state === 'Needs Review' ? (
+                                    <div className="text-yellow-500">{task.state}</div>
+                                ) : (
+                                    <div className="text-green-500">{task.state}</div>
+                                )}
+                                <div className="text-muted-foreground text-xs">{task.stateDate}</div>
+                            </TableCell>
+                            <TableCell>
+                                {task.documents !== "-" ? 
+                                <Link href="#" className="text-primary hover:underline">{task.documents}</Link> 
+                                : "-"}
+                            </TableCell>
+                            <TableCell className={task.state === 'Needs Review' ? 'text-red-500' : ''}>{task.dueDate}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                    {task.actions === 'REVIEW' ? (
+                                        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs h-auto py-1 px-4">REVIEW</Button>
+                                    ) : (
+                                        <MessageSquare className="h-5 w-5" />
+                                    )}
+                                    <MoreHorizontal className="h-5 w-5" />
+                                </div>
+                            </TableCell>
+                             <TableCell>
+                                {task.actions !== 'REVIEW' && <MessageSquare className="h-5 w-5 invisible" /> }
+                             </TableCell>
                         </TableRow>
                       ))}
                   </TableBody>
