@@ -1,13 +1,11 @@
 'use client';
 
 import { Table } from '@tanstack/react-table';
-import { X } from 'lucide-react';
+import { X, SlidersHorizontal, ListFilter } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { DataTableViewOptions } from './data-table-view-options';
-import { DataTableFacetedFilter } from './data-table-faceted-filter';
-import { statuses } from './columns';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -22,32 +20,32 @@ export function DataTableToolbar<TData>({
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
         <Input
-          placeholder="Search tasks..."
+          placeholder="Search by name, stock number, email, task"
           value={(table.getColumn('task')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
             table.getColumn('task')?.setFilterValue(event.target.value)
           }
-          className="h-8 w-[150px] lg:w-[250px]"
+          className="h-8 w-full lg:w-[350px] bg-card text-card-foreground border-border"
         />
-        {table.getColumn('status') && (
-          <DataTableFacetedFilter
-            column={table.getColumn('status')}
-            title="Status"
-            options={statuses}
-          />
-        )}
         {isFiltered && (
           <Button
             variant="ghost"
             onClick={() => table.resetColumnFilters()}
-            className="h-8 px-2 lg:px-3"
+            className="h-8 px-2 lg:px-3 text-white"
           >
             Reset
             <X className="ml-2 h-4 w-4" />
           </Button>
         )}
       </div>
-      <DataTableViewOptions table={table} />
+      <div className="flex items-center gap-2">
+         <Button variant="outline" size="sm" className="h-8 bg-card text-card-foreground border-border">
+            <ListFilter className="mr-2 h-4 w-4" />
+            Filters
+            <div className="ml-2 h-5 w-5 rounded-full bg-primary flex items-center justify-center text-xs text-primary-foreground">2</div>
+         </Button>
+        <DataTableViewOptions table={table} />
+      </div>
     </div>
   );
 }

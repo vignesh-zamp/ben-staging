@@ -1,26 +1,37 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { CheckCircle, Circle, XCircle, Clock, Ban } from 'lucide-react';
-
+import { Pencil, MessageSquare, MessageSquareWarning, Link as LinkIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { DataTableColumnHeader } from './data-table-column-header';
 import { Task } from '../data/schema';
 import { DataTableRowActions } from './data-table-row-actions';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { format } from 'date-fns';
-
-export const statuses = [
-  { value: 'Completed', label: 'Completed', icon: CheckCircle },
-  { value: 'In Progress', label: 'In Progress', icon: Clock },
-  { value: 'Pending', label: 'Pending', icon: Circle },
-  { value: 'Canceled', label: 'Canceled', icon: XCircle },
-];
-
-const assignedToAvatars = PlaceHolderImages.filter(img => img.id.startsWith('user-'));
+import Link from 'next/link';
 
 export const columns: ColumnDef<Task>[] = [
+  {
+    id: 'comments',
+    cell: ({ row }) => {
+      const hasWarning = row.original.id === "TASK-5678" || row.original.id === "TASK-1121";
+      return (
+        <div className="text-muted-foreground">
+          {hasWarning ? <MessageSquareWarning className="h-4 w-4 text-red-500" /> : <MessageSquare className="h-4 w-4" />}
+        </div>
+      );
+    },
+    header: '',
+  },
+  {
+    id: 'edit',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-1 text-muted-foreground">
+        <Pencil className="h-3 w-3" />
+        <span className="text-xs">EDIT TASK</span>
+      </div>
+    ),
+    header: '',
+  },
   {
     accessorKey: 'task',
     header: ({ column }) => (
@@ -28,11 +39,9 @@ export const columns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => {
       return (
-        <div className="flex space-x-2">
-          <span className="max-w-[300px] truncate font-medium">
-            {row.getValue('task')}
-          </span>
-        </div>
+        <Link href="#" className="font-medium text-primary hover:underline whitespace-nowrap">
+          {row.getValue('task')}
+        </Link>
       );
     },
     enableSorting: true,
@@ -43,23 +52,10 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Status" />
     ),
     cell: ({ row }) => {
-      const status = statuses.find(
-        (status) => status.value === row.getValue('status')
-      );
-      
-      let variant: 'outline' | 'secondary' | 'default' | 'destructive' = 'outline';
-      if (status?.value === 'Completed') variant = 'default';
-      if (status?.value === 'In Progress') variant = 'secondary';
-      if (status?.value === 'Canceled') variant = 'destructive';
-      
-      if (!status) {
-        return null;
-      }
-
+      const status = row.getValue('status') as string;
       return (
-        <Badge variant={variant} className="whitespace-nowrap">
-          {status.icon && <status.icon className="mr-2 h-4 w-4" />}
-          <span>{status.label}</span>
+        <Badge variant={status === 'Incomplete' ? 'destructive' : 'default'} className="whitespace-nowrap bg-[#3a3a3a] text-white">
+          {status}
         </Badge>
       );
     },
@@ -74,7 +70,7 @@ export const columns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => {
         const date = new Date(row.getValue('dueDate'));
-        return <div className="whitespace-nowrap">{format(date, 'MMM d, yyyy')}</div>;
+        return <div className="whitespace-nowrap">{format(date, "MMM d'th' yyyy, hh:mm aaaaa'm'")}</div>;
     },
   },
   {
@@ -82,14 +78,19 @@ export const columns: ColumnDef<Task>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Order" />
     ),
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue('order')}</div>,
+    cell: ({ row }) => (
+        <Link href="#" className="text-primary hover:underline flex items-center gap-1">
+            <LinkIcon className="h-3 w-3" />
+            {row.getValue('order')}
+        </Link>
+    ),
   },
     {
     accessorKey: 'stock',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Stock #" />
+      <DataTableColumnHeader column={column} title="Stock" />
     ),
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue('stock')}</div>,
+    cell: ({ row }) => <div className="whitespace-nowrap">{row.getValue('stock')}</div>,
   },
   {
     accessorKey: 'customer',
@@ -97,10 +98,9 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       const customer = row.getValue('customer') as {name: string, email: string};
       return (
-        <div>
-          <div className="font-medium">{customer.name}</div>
-          <div className="text-sm text-muted-foreground">{customer.email}</div>
-        </div>
+        <Link href="#" className="text-primary hover:underline whitespace-nowrap">
+          {customer.name}
+        </Link>
       )
     }
   },
@@ -110,20 +110,27 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Assigned To" />
     ),
     cell: ({ row }) => {
-      const assigneeId = row.getValue('assignedTo') as string;
-      const assigneeName = assigneeId.charAt(0).toUpperCase() + assigneeId.slice(1);
-      const avatar = assignedToAvatars.find(a => a.id === `user-${assigneeId}`);
-      
-      return (
-        <div className="flex items-center gap-2">
-            <Avatar className="h-6 w-6">
-                {avatar && <AvatarImage src={avatar.imageUrl} alt={assigneeName} />}
-                <AvatarFallback>{assigneeId.charAt(0).toUpperCase()}</AvatarFallback>
-            </Avatar>
-            <span>{assigneeName}</span>
-        </div>
-      )
+      return <div className="whitespace-nowrap">{row.getValue('assignedTo') || ''}</div>;
     },
+  },
+    {
+    accessorKey: 'deliveryDate',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Delivery Date" />
+    ),
+    cell: ({ row }) => {
+        const dateStr = row.getValue('deliveryDate') as string | undefined;
+        if (!dateStr) return null;
+        const date = new Date(dateStr);
+        return <div className="whitespace-nowrap">{format(date, "MMM d'th' yyyy, hh:mm aaaaa'm'")}</div>;
+    },
+  },
+   {
+    accessorKey: 'reminders',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Reminders" />
+    ),
+    cell: ({ row }) => <div className="whitespace-nowrap">{row.getValue('reminders') || ''}</div>,
   },
   {
     id: 'actions',

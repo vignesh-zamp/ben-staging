@@ -6,12 +6,14 @@ export const taskSchema = z.object({
   status: z.string(),
   dueDate: z.string(),
   order: z.string(),
-  stock: z.string(),
+  stock: z.string().optional(),
   customer: z.object({
     name: z.string(),
     email: z.string(),
   }),
-  assignedTo: z.string(),
+  assignedTo: z.string().optional(),
+  deliveryDate: z.string().optional(),
+  reminders: z.string().optional(),
 });
 
 export type Task = z.infer<typeof taskSchema>;
