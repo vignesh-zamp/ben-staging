@@ -153,7 +153,7 @@ const orderData: { [key: string]: any } = {
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '6/10',
+            completed: '19/23',
             deliveryDays: '-18 days',
             pendingDays: '21 days',
             lastActivity: '3 days',
@@ -222,6 +222,17 @@ const orderData: { [key: string]: any } = {
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Lien Check (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Proof of Ownership (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                 ]
+            },
+             {
+                title: 'Corporate Information',
+                completed: '2/2',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true },
+                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true },
+                ],
+                footerLink: "VIEW DELETED TASKS"
             },
         ]
     }
@@ -392,6 +403,13 @@ export default function OrderDetailsPage({
                 <div className="p-4 text-center text-muted-foreground">
                     No tasks have been created for this category
                 </div>
+            )}
+            {section.footerLink && (
+              <div className="p-4 text-center border-t border-border">
+                <Link href="#" className="text-sm text-primary font-semibold hover:underline">
+                    {section.footerLink}
+                </Link>
+              </div>
             )}
         </div>
       ))}
