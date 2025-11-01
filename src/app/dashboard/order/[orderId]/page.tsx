@@ -153,10 +153,10 @@ const orderData: { [key: string]: any } = {
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '2/5',
-            deliveryDays: '-9 days',
-            pendingDays: '13 days',
-            lastActivity: '9 days',
+            completed: '12/17',
+            deliveryDays: '-8 days',
+            pendingDays: '12 days',
+            lastActivity: '8 days',
         },
         sections: [
              {
