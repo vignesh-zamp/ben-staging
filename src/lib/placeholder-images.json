@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "user-benjamin",
+      "description": "Avatar for Benjamin",
+      "imageUrl": "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW4lMjBhdmF0YXJ8ZW58MHx8fHwxNzYyMDE0NDkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man avatar"
+    },
+    {
+      "id": "user-samantha",
+      "description": "Avatar for Samantha",
+      "imageUrl": "https://images.unsplash.com/photo-1722270608841-35d7372a2e85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29tYW4lMjBhdmF0YXJ8ZW58MHx8fHwxNzYxOTI3MzA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman avatar"
+    },
+    {
+      "id": "user-david",
+      "description": "Avatar for David",
+      "imageUrl": "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW4lMjBhdmF0YXJ8ZW58MHx8fHwxNzYyMDE0NDkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man avatar"
+    },
+    {
+      "id": "user-emily",
+      "description": "Avatar for Emily",
+      "imageUrl": "https://images.unsplash.com/photo-1722270608841-35d7372a2e85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29tYW4lMjBhdmF0YXJ8ZW58MHx8fHwxNzYxOTI3MzA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman avatar"
+    },
+    {
+      "id": "user-alex",
+      "description": "Avatar for Alex",
+      "imageUrl": "https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBhdmF0YXJ8ZW58MHx8fHwxNzYyMDA1OTIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person avatar"
+    }
+  ]
 }

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "TASK-8782",
+    "task": "Finalize Q3 marketing report",
+    "status": "In Progress",
+    "dueDate": "2024-10-25",
+    "order": "ORD-001",
+    "stock": "STK-1023",
+    "customer": {
+      "name": "Global Corp",
+      "email": "contact@globalcorp.com"
+    },
+    "assignedTo": "samantha"
+  },
+  {
+    "id": "TASK-7878",
+    "task": "Update the customer onboarding guide",
+    "status": "Completed",
+    "dueDate": "2024-09-15",
+    "order": "ORD-002",
+    "stock": "STK-1024",
+    "customer": {
+      "name": "Innovate LLC",
+      "email": "support@innovatellc.com"
+    },
+    "assignedTo": "benjamin"
+  },
+  {
+    "id": "TASK-4532",
+    "task": "Develop new API for payment processing",
+    "status": "In Progress",
+    "dueDate": "2024-11-30",
+    "order": "ORD-003",
+    "stock": "STK-1025",
+    "customer": {
+      "name": "Tech Solutions",
+      "email": "dev@techsolutions.com"
+    },
+    "assignedTo": "david"
+  },
+  {
+    "id": "TASK-1234",
+    "task": "Design new homepage mockups",
+    "status": "Pending",
+    "dueDate": "2024-10-10",
+    "order": "ORD-004",
+    "stock": "STK-1026",
+    "customer": {
+      "name": "Creative Agency",
+      "email": "projects@creative.io"
+    },
+    "assignedTo": "emily"
+  },
+  {
+    "id": "TASK-5678",
+    "task": "Fix login bug on mobile app",
+    "status": "Canceled",
+    "dueDate": "2024-09-20",
+    "order": "ORD-005",
+    "stock": "STK-1027",
+    "customer": {
+      "name": "MobileFirst Inc.",
+      "email": "bugs@mobilefirst.com"
+    },
+    "assignedTo": "alex"
+  },
+  {
+    "id": "TASK-9101",
+    "task": "Prepare slides for stakeholder meeting",
+    "status": "Completed",
+    "dueDate": "2024-09-01",
+    "order": "ORD-006",
+    "stock": "STK-1028",
+    "customer": {
+      "name": "Synergy Group",
+      "email": "pm@synergy.com"
+    },
+    "assignedTo": "benjamin"
+  },
+  {
+    "id": "TASK-1121",
+    "task": "Research competitor pricing strategies",
+    "status": "In Progress",
+    "dueDate": "2024-11-05",
+    "order": "ORD-007",
+    "stock": "STK-1029",
+    "customer": {
+      "name": "Market Leaders",
+      "email": "research@marketleaders.com"
+    },
+    "assignedTo": "samantha"
+  }
+]
