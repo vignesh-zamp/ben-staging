@@ -224,6 +224,34 @@ const contractSigningTasks = [
     },
 ];
 
+const paymentTasks = [
+    {
+        team: "In-sale",
+        assignedTo: "Christian Volfson",
+        task: "Void Cheque or Direct Deposit Form",
+        badge: "EXT",
+        badgeColor: "bg-blue-500",
+        state: "Complete",
+        stateDate: "October 22, 2025 9:02 PM",
+        documents: "1/1 file(s)",
+        dueDate: "-",
+    }
+];
+
+const proofOfInsuranceTasks = [
+    {
+        team: "In-sale",
+        assignedTo: "Christian Volfson",
+        task: "Proof of insurance",
+        badge: "EXT",
+        badgeColor: "bg-blue-500",
+        state: "Complete",
+        stateDate: "October 24, 2025 6:49 PM",
+        documents: "1/1 file(s)",
+        dueDate: "-",
+    }
+];
+
 export default function OrderDetailsPage({
   params,
 }: {
@@ -549,6 +577,131 @@ export default function OrderDetailsPage({
                              <TableCell>
                                 {task.actions !== 'REVIEW' && <MessageSquare className="h-5 w-5 invisible" /> }
                              </TableCell>
+                        </TableRow>
+                      ))}
+                  </TableBody>
+              </Table>
+          </div>
+      </div>
+
+      <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Payment</h2>
+              <div className="flex items-center gap-2 text-sm text-green-500 font-semibold">
+                   <CheckCircle2 className="h-4 w-4"/>
+                  <span>1/1 Tasks Complete</span>
+                  <ChevronUp className="h-4 w-4 text-muted-foreground"/>
+              </div>
+          </div>
+          <div className="p-4">
+              <Table>
+                  <TableHeader>
+                      <TableRow className="border-b-0">
+                          <TableHead className="text-muted-foreground">Team</TableHead>
+                          <TableHead className="text-muted-foreground">Assigned to</TableHead>
+                          <TableHead className="text-muted-foreground">Task</TableHead>
+                          <TableHead className="text-muted-foreground">State</TableHead>
+                          <TableHead className="text-muted-foreground">Documents</TableHead>
+                          <TableHead className="text-muted-foreground">Due Date</TableHead>
+                          <TableHead className="text-muted-foreground">Actions</TableHead>
+                          <TableHead className="text-muted-foreground">Notes</TableHead>
+                      </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      {paymentTasks.map(task => (
+                        <TableRow key={task.task} className="border-border">
+                            <TableCell>{task.team}</TableCell>
+                            <TableCell>{task.assignedTo}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2">
+                                    <Badge className={`${task.badgeColor} text-white`}>{task.badge}</Badge>
+                                    <span>{task.task}</span>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                <div className="text-green-500">{task.state}</div>
+                                <div className="text-muted-foreground text-xs">{task.stateDate}</div>
+                            </TableCell>
+                            <TableCell>
+                                <Link href="#" className="text-primary hover:underline">{task.documents}</Link>
+                            </TableCell>
+                            <TableCell>{task.dueDate}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                    <MessageSquare className="h-5 w-5" />
+                                    <MoreHorizontal className="h-5 w-5" />
+                                </div>
+                            </TableCell>
+                            <TableCell></TableCell>
+                        </TableRow>
+                      ))}
+                  </TableBody>
+              </Table>
+          </div>
+      </div>
+
+      <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Ancillary Products</h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
+                  <span>0 tasks</span>
+                  <ChevronUp className="h-4 w-4"/>
+              </div>
+          </div>
+          <div className="p-4 text-center text-muted-foreground">
+              No tasks have been created for this category
+          </div>
+      </div>
+
+      <div className="rounded-lg bg-card border border-border">
+          <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
+              <h2 className="font-semibold text-white">Proof of Insurance</h2>
+              <div className="flex items-center gap-2 text-sm text-green-500 font-semibold">
+                  <CheckCircle2 className="h-4 w-4"/>
+                  <span>1/1 Tasks Complete</span>
+                  <ChevronUp className="h-4 w-4 text-muted-foreground"/>
+              </div>
+          </div>
+          <div className="p-4">
+              <Table>
+                  <TableHeader>
+                      <TableRow className="border-b-0">
+                          <TableHead className="text-muted-foreground">Team</TableHead>
+                          <TableHead className="text-muted-foreground">Assigned to</TableHead>
+                          <TableHead className="text-muted-foreground">Task</TableHead>
+                          <TableHead className="text-muted-foreground">State</TableHead>
+                          <TableHead className="text-muted-foreground">Documents</TableHead>
+                          <TableHead className="text-muted-foreground">Due Date</TableHead>
+                          <TableHead className="text-muted-foreground">Actions</TableHead>
+                          <TableHead className="text-muted-foreground">Notes</TableHead>
+                      </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      {proofOfInsuranceTasks.map(task => (
+                        <TableRow key={task.task} className="border-border">
+                            <TableCell>{task.team}</TableCell>
+                            <TableCell>{task.assignedTo}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2">
+                                    <Badge className={`${task.badgeColor} text-white`}>{task.badge}</Badge>
+                                    <span>{task.task}</span>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                <div className="text-green-500">{task.state}</div>
+                                <div className="text-muted-foreground text-xs">{task.stateDate}</div>
+                            </TableCell>
+                            <TableCell>
+                                <Link href="#" className="text-primary hover:underline">{task.documents}</Link>
+                            </TableCell>
+                            <TableCell>{task.dueDate}</TableCell>
+                            <TableCell>
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                    <MessageSquare className="h-5 w-5" />
+                                    <MoreHorizontal className="h-5 w-5" />
+                                </div>
+                            </TableCell>
+                            <TableCell></TableCell>
                         </TableRow>
                       ))}
                   </TableBody>
