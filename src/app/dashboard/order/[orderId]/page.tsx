@@ -358,7 +358,7 @@ export default function OrderDetailsPage({
           <span className="font-semibold text-primary">Grant Michael (#72737)</span>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
           <span className="font-semibold text-white">C-KKZ9X4MH</span>
-          <Badge className="bg-yellow-400 text-black">BOS Sent</Badge>
+          <Badge className="bg-blue-600 text-white">BOS Sent</Badge>
         </div>
         <div className="flex items-center gap-2">
             <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold">UNLOCK DEAL</Button>
@@ -642,7 +642,7 @@ export default function OrderDetailsPage({
                             </TableCell>
                             <TableCell>
                                 {task.state === 'Needs Review' ? (
-                                    <div className="text-yellow-500">{task.state}</div>
+                                    <div className="text-blue-500">{task.state}</div>
                                 ) : (
                                     <div className="text-green-500">{task.state}</div>
                                 )}
@@ -835,7 +835,7 @@ export default function OrderDetailsPage({
                                 </div>
                             </TableCell>
                             <TableCell>
-                                <div className="text-yellow-500">{task.state}</div>
+                                <div className="text-blue-500">{task.state}</div>
                             </TableCell>
                             <TableCell>{task.documents}</TableCell>
                             <TableCell className="text-red-500">{task.dueDate}</TableCell>
@@ -895,7 +895,7 @@ export default function OrderDetailsPage({
                             </TableCell>
                              <TableCell>
                                 {task.state === 'Incomplete' ? (
-                                    <div className="text-yellow-500">{task.state}</div>
+                                    <div className="text-blue-500">{task.state}</div>
                                 ) : (
                                     <div className="text-green-500">{task.state}</div>
                                 )}
@@ -1012,7 +1012,7 @@ export default function OrderDetailsPage({
                                 </div>
                             </TableCell>
                             <TableCell>
-                                <div className="text-yellow-500">{task.state}</div>
+                                <div className="text-blue-500">{task.state}</div>
                             </TableCell>
                             <TableCell>{task.documents}</TableCell>
                             <TableCell className="text-red-500">{task.dueDate}</TableCell>
