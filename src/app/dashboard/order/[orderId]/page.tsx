@@ -35,17 +35,6 @@ const identityTasks = [
     {
         team: "In-sale",
         assignedTo: "Christian Volfson",
-        task: "Co-buyer driver license verification",
-        badge: "EXT",
-        badgeColor: "bg-blue-500",
-        state: "Complete",
-        stateDate: "October 22, 2025 8:25 PM",
-        documents: "1/1 file(s)",
-        dueDate: "-",
-    },
-    {
-        team: "In-sale",
-        assignedTo: "Christian Volfson",
         task: "Driver license",
         badge: "EXT",
         badgeColor: "bg-blue-500",
@@ -157,9 +146,9 @@ const financingTasks = [
 
 const contractSigningTasks = [
     {
-        team: "In-sale",
-        assignedTo: "Christian Volfson",
-        task: "Upload signed contract",
+        team: "Deal fund",
+        assignedTo: "Piranave Chandraphalan",
+        task: "Verify and send BOS",
         badge: "INT",
         badgeColor: "bg-red-500",
         state: "Needs Review",
@@ -167,17 +156,6 @@ const contractSigningTasks = [
         documents: "1/1 file(s)",
         dueDate: "October 25, 2025 9:09 AM",
         actions: "REVIEW",
-    },
-    {
-        team: "Deal fund",
-        assignedTo: "Piranave Chandraphalan",
-        task: "Verify and send BOS",
-        badge: "INT",
-        badgeColor: "bg-red-500",
-        state: "Complete",
-        stateDate: "October 25, 2025 4:33 AM",
-        documents: "-",
-        dueDate: "-",
     },
     {
         team: "Underwriting",
@@ -355,10 +333,10 @@ export default function OrderDetailsPage({
             Orders
           </Link>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
-          <span className="font-semibold text-primary">Grant Michael (#72737)</span>
+          <span className="font-semibold text-primary">Alison Mullen (#72590)</span>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
-          <span className="font-semibold text-white">C-KKZ9X4MH</span>
-          <Badge className="bg-blue-600 text-white">BOS Sent</Badge>
+          <span className="font-semibold text-white">C-YRSRVHD6</span>
+          <Badge className="bg-yellow-400 text-black">BOS Sent</Badge>
         </div>
         <div className="flex items-center gap-2">
             <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold">UNLOCK DEAL</Button>
@@ -378,7 +356,7 @@ export default function OrderDetailsPage({
         <Card className="bg-card">
             <CardContent className="p-4">
                 <p className="text-sm text-muted-foreground">Tasks completed</p>
-                <p className="text-2xl font-bold">22/26</p>
+                <p className="text-2xl font-bold">12/17</p>
             </CardContent>
         </Card>
         <Card className="bg-card">
@@ -390,7 +368,7 @@ export default function OrderDetailsPage({
         <Card className="bg-card">
             <CardContent className="p-4">
                 <p className="text-sm text-muted-foreground">Days sale pending</p>
-                <p className="text-2xl font-bold">10 days</p>
+                <p className="text-2xl font-bold">12 days</p>
             </CardContent>
         </Card>
         <Card className="bg-card">
@@ -420,7 +398,7 @@ export default function OrderDetailsPage({
               <h2 className="font-semibold text-white">Identity</h2>
               <div className="flex items-center gap-2 text-sm text-green-500 font-semibold">
                   <CheckCircle2 className="h-4 w-4"/>
-                  <span>3/3 Tasks Complete</span>
+                  <span>2/2 Tasks Complete</span>
               </div>
           </div>
           <div className="p-4">
@@ -604,8 +582,8 @@ export default function OrderDetailsPage({
       <div className="rounded-lg bg-card border border-border">
           <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
               <h2 className="font-semibold text-white">Contract Signing</h2>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold">
-                  <span>5/6 Tasks Complete</span>
+              <div className="flex items-center gap-2 text-sm text-yellow-500 font-semibold">
+                  <span>4/5 Tasks Complete</span>
                   <ChevronUp className="h-4 w-4"/>
               </div>
           </div>
@@ -642,7 +620,7 @@ export default function OrderDetailsPage({
                             </TableCell>
                             <TableCell>
                                 {task.state === 'Needs Review' ? (
-                                    <div className="text-blue-500">{task.state}</div>
+                                    <div className="text-yellow-500">{task.state}</div>
                                 ) : (
                                     <div className="text-green-500">{task.state}</div>
                                 )}
