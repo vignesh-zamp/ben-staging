@@ -39,7 +39,12 @@ export const columns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => {
       const task = row.original;
-      const link = task.id === 'TASK-7878' ? `/dashboard/order/${task.order}` : '#';
+      let link = '#';
+      if (task.id === 'TASK-7878') {
+        link = `/dashboard/order/C-KKZ9X4MH`;
+      } else if (task.id === 'TASK-9101') {
+        link = `/dashboard/order/C-YRSRVHD6`;
+      }
       return (
         <Link href={link} className="font-medium text-primary hover:underline whitespace-nowrap">
           {row.getValue('task')}
@@ -100,7 +105,12 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       const customer = row.getValue('customer') as {name: string, email: string};
       const task = row.original;
-      const link = task.id === 'TASK-7878' ? `/dashboard/order/${task.order}` : '#';
+      let link = '#';
+      if (task.id === 'TASK-7878') {
+        link = `/dashboard/order/C-KKZ9X4MH`;
+      } else if (task.id === 'TASK-9101') {
+          link = `/dashboard/order/C-YRSRVHD6`;
+      }
       return (
         <Link href={link} className="text-primary hover:underline whitespace-nowrap">
           {customer.name}
