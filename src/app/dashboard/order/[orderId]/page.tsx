@@ -153,10 +153,10 @@ const orderData: { [key: string]: any } = {
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '12/17',
-            deliveryDays: '-8 days',
-            pendingDays: '12 days',
-            lastActivity: '8 days',
+            completed: '6/10',
+            deliveryDays: '-18 days',
+            pendingDays: '21 days',
+            lastActivity: '3 days',
         },
         sections: [
              {
@@ -180,7 +180,28 @@ const orderData: { [key: string]: any } = {
                     { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale Generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-"},
                     { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-"},
                 ]
-            }
+            },
+            {
+                title: 'Payment',
+                completed: '4/4',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Void Cheque or Direct Deposit Form (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
+                    { team: "Accounting", assignedTo: "Khushi Patel", task: "Prepare Customer Payment", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
+                    { team: "Accounting", assignedTo: "Dishal Acharya", task: "Approve Customer Payment (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
+                ]
+            },
+            {
+                title: 'Ancillary Products',
+                completed: '0/1',
+                status: 'Incomplete',
+                statusColor: 'text-blue-500',
+                tasks: [
+                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", }
+                ]
+            },
         ]
     }
 };
