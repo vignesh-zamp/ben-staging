@@ -44,29 +44,31 @@ export function LoginForm() {
           id="email"
           name="email"
           type="email"
-          placeholder="benjamin@example.com"
+          placeholder="john@clutch.com"
           required
-          defaultValue="benjamin@example.com"
+          defaultValue="john@clutch.com"
+          className="bg-white text-black"
         />
       </div>
       <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <Label htmlFor="password">Password</Label>
-          <Link
-            href="#"
-            className="text-sm font-medium text-primary/90 hover:text-primary"
-          >
-            Forgot password?
-          </Link>
-        </div>
+        <Label htmlFor="password">Password</Label>
         <Input
           id="password"
           name="password"
           type="password"
           required
           defaultValue="zamp123"
+          className="bg-white text-black"
         />
       </div>
+        <div className="text-left">
+          <Link
+            href="#"
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            Forgot password?
+          </Link>
+        </div>
       <LoginButton />
     </form>
   );
