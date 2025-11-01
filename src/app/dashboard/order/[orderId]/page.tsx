@@ -26,7 +26,7 @@ const orderData: { [key: string]: any } = {
         customerName: 'Grant Michael',
         stock: '72737',
         status: 'BOS Sent',
-        statusColor: 'bg-yellow-400 text-black',
+        statusColor: 'bg-blue-500 text-white',
         stats: {
             completed: '12/17',
             deliveryDays: '-8 days',
@@ -72,7 +72,7 @@ const orderData: { [key: string]: any } = {
                 title: 'Contract Signing',
                 completed: '4/5',
                 status: 'Incomplete',
-                statusColor: 'text-yellow-500',
+                statusColor: 'text-blue-500',
                 tasks: [
                     { team: "Deal fund", assignedTo: "Piranave Chandraphalan", task: "Verify and send BOS", badge: "INT", badgeColor: "bg-red-500", state: "Needs Review", stateDate: "", documents: "1/1 file(s)", dueDate: "October 25, 2025 9:09 AM", actions: "REVIEW", },
                     { team: "Underwriting", assignedTo: "Jan Elijah Pilares", task: "Finance contract generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 8:42 PM", documents: "1/1 file(s)", dueDate: "-", },
@@ -151,7 +151,7 @@ const orderData: { [key: string]: any } = {
         customerName: 'Alison Mullen',
         stock: '72590',
         status: 'BOS Sent',
-        statusColor: 'bg-yellow-400 text-black',
+        statusColor: 'bg-blue-500 text-white',
         stats: {
             completed: '2/5',
             deliveryDays: '-9 days',
@@ -165,19 +165,20 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Post-deposit customer call", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 22, 2025 8:09 PM", documents: "-", dueDate: "-", },
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Driver license", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 8:25 PM", documents: "1/1 file(s)", dueDate: "-", }
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
             {
                 title: 'Contract Signing',
-                completed: '0/3',
-                status: 'Incomplete',
-                statusColor: 'text-yellow-500',
+                completed: '4/4',
+                status: 'Complete',
+                statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Contract signing", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "-", dueDate: "Oct 25th 2025, 05:09 am", actions: "COMPLETE" },
-                    { team: "Deal fund", assignedTo: "Piranave Chandraphalan", task: "Verify and send BOS", badge: "INT", badgeColor: "bg-red-500", state: "Needs Review", stateDate: "", documents: "1/1 file(s)", dueDate: "Oct 25th 2025, 09:09 am", actions: "REVIEW" },
-                    { team: "In-sale", assignedTo: "ASSIGN ADVISOR", task: "Verify underwriting complete", badge: "INT", badgeColor: "bg-red-500", state: "Incomplete", stateDate: "", documents: "-", dueDate: "Oct 25th 2025, 05:09 am", actions: "COMPLETE" },
+                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-"},
+                    { team: "Accounting", assignedTo: "Khushi Patel", task: "Upload Signed Bill of Sale (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasWarning: true},
+                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale Generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-"},
+                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-"},
                 ]
             }
         ]
@@ -312,7 +313,7 @@ export default function OrderDetailsPage({
                                     <TableCell>
                                         <div className={
                                             task.state === 'Complete' ? 'text-green-500' :
-                                            task.state === 'Needs Review' ? 'text-yellow-500' :
+                                            task.state === 'Needs Review' ? 'text-blue-500' :
                                             'text-blue-500'
                                         }>{task.state}</div>
                                         {task.stateDate && <div className="text-muted-foreground text-xs">{task.stateDate}</div>}
