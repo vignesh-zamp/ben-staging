@@ -186,7 +186,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison2.png" },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison1.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -196,10 +196,10 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison3.png"},
+                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison2.png"},
                     { team: "Accounting", assignedTo: "Khushi Patel", task: "Upload Signed Bill of Sale (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasWarning: true},
                     { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale Generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-"},
-                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison1.png"},
+                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison3.png"},
                 ]
             },
             {
