@@ -12,6 +12,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ClutchLogo } from '@/components/icons/clutch-logo';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Plus, Settings } from 'lucide-react';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { logout } from '../actions';
 
 const navItems = [
   { href: '#', label: 'Vehicles' },
@@ -28,11 +31,30 @@ const navItems = [
   { href: '#', label: 'Lifecycle' },
 ];
 
+function LogoutMenuItem() {
+  return (
+    <form action={logout}>
+      <button type="submit" className="w-full text-left">
+        <DropdownMenuItem>
+          Logout
+        </DropdownMenuItem>
+      </button>
+    </form>
+  )
+}
+
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = cookies();
+  const authToken = cookieStore.get('auth-token');
+
+  if (!authToken) {
+    redirect('/login');
+  }
+
   const userAvatar = PlaceHolderImages.find((img) => img.id === 'user-benjamin');
 
   return (
@@ -80,9 +102,7 @@ export default function DashboardLayout({
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/login">Logout</Link>
-                </DropdownMenuItem>
+                <LogoutMenuItem />
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
