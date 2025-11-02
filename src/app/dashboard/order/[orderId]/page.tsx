@@ -39,7 +39,6 @@ const doc5 = PlaceHolderImages.find((img) => img.id === 'document-5')?.imageUrl 
 const doc6 = PlaceHolderImages.find((img) => img.id === 'document-6')?.imageUrl || '';
 const doc7 = PlaceHolderImages.find((img) => img.id === 'document-7')?.imageUrl || '';
 const doc8 = PlaceHolderImages.find((img) => img.id === 'document-8')?.imageUrl || '';
-const doc9 = PlaceHolderImages.find((img) => img.id === 'document-9')?.imageUrl || '';
 
 
 const orderData: { [key: string]: any } = {
@@ -186,7 +185,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison1.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -196,10 +195,10 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc2},
+                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison2.png"},
                     { team: "Accounting", assignedTo: "Khushi Patel", task: "Upload Signed Bill of Sale (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasWarning: true},
                     { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale Generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-"},
-                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc3},
+                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison3.png"},
                 ]
             },
             {
@@ -208,7 +207,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc4 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/alison4.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Void Cheque or Direct Deposit Form (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
                     { team: "Accounting", assignedTo: "Khushi Patel", task: "Prepare Customer Payment", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
                     { team: "Accounting", assignedTo: "Dishal Acharya", task: "Approve Customer Payment (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
@@ -220,7 +219,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Incomplete',
                 statusColor: 'text-blue-500',
                 tasks: [
-                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", documentUrl: doc5 }
+                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", documentUrl: "/alison5.png" }
                 ]
             },
             {
@@ -238,8 +237,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc6 },
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc7 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: "/alison6.png" },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: "/alison7.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Lien Check (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Proof of Ownership (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                 ]
@@ -250,8 +249,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc8 },
-                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc9 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: "/alison8.png" },
+                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: "/alison9.png" },
                 ],
                 footerLink: "VIEW DELETED TASKS"
             },
