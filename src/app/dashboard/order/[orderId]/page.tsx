@@ -1,3 +1,7 @@
+
+'use client';
+
+import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -8,6 +12,9 @@ import {
   CheckCircle2,
   ChevronUp,
   ChevronDown,
+  ZoomIn,
+  ZoomOut,
+  X,
 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -20,6 +27,14 @@ import {
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { notFound } from 'next/navigation';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+const doc1 = PlaceHolderImages.find((img) => img.id === 'document-1')?.imageUrl || '';
+const doc2 = PlaceHolderImages.find((img) => img.id === 'document-2')?.imageUrl || '';
+const doc3 = PlaceHolderImages.find((img) => img.id === 'document-3')?.imageUrl || '';
+
 
 const orderData: { [key: string]: any } = {
     'C-KKZ9X4MH': {
@@ -41,7 +56,7 @@ const orderData: { [key: string]: any } = {
                 statusColor: 'text-green-500',
                 tasks: [
                     { team: "In-sale", assignedTo: "Christian Volfson", task: "Post-deposit customer call", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 22, 2025 8:09 PM", documents: "-", dueDate: "-", },
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Driver license", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 8:25 PM", documents: "1/1 file(s)", dueDate: "-", }
+                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Driver license", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 8:25 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 }
                 ]
             },
             {
@@ -50,8 +65,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Trade-in lien check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:46 PM", documents: "1/1 file(s)", dueDate: "-", },
-                    { team: "Market supply", assignedTo: "Christian Volfson", task: "Trade-in ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "1/1 file(s)", dueDate: "-", },
+                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Trade-in lien check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:46 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc2 },
+                    { team: "Market supply", assignedTo: "Christian Volfson", task: "Trade-in ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc3 },
                     { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Trade-in appraisal", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 8:25 PM", documents: "-", dueDate: "-", }
                 ]
             },
@@ -63,7 +78,7 @@ const orderData: { [key: string]: any } = {
                 tasks: [
                     { team: "Underwriting", assignedTo: "Christian Volfson", task: "Submit to lender", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "-", dueDate: "-", hasWarning: false, },
                     { team: "Underwriting", assignedTo: "ASSIGN ADVISOR", task: "Finance application", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 7:02 AM", documents: "-", dueDate: "-", hasWarning: false, },
-                    { team: "Underwriting", assignedTo: "Abhi Shetty", task: "Finance stipulation verification", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "1/1 file(s)", dueDate: "-", hasWarning: true, },
+                    { team: "Underwriting", assignedTo: "Abhi Shetty", task: "Finance stipulation verification", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "1/1 file(s)", dueDate: "-", hasWarning: true, documentUrl: doc1 },
                     { team: "In-sale", assignedTo: "Christian Volfson", task: "Communicate decision to customer", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "-", dueDate: "-", hasWarning: false, },
                     { team: "Underwriting", assignedTo: "Christian Volfson", task: "Verify financing complete", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "-", dueDate: "-", hasWarning: false, }
                 ]
@@ -74,8 +89,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Incomplete',
                 statusColor: 'text-blue-500',
                 tasks: [
-                    { team: "Deal fund", assignedTo: "Piranave Chandraphalan", task: "Verify and send BOS", badge: "INT", badgeColor: "bg-red-500", state: "Needs Review", stateDate: "", documents: "1/1 file(s)", dueDate: "October 25, 2025 9:09 AM", actions: "REVIEW", },
-                    { team: "Underwriting", assignedTo: "Jan Elijah Pilares", task: "Finance contract generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 8:42 PM", documents: "1/1 file(s)", dueDate: "-", },
+                    { team: "Deal fund", assignedTo: "Piranave Chandraphalan", task: "Verify and send BOS", badge: "INT", badgeColor: "bg-red-500", state: "Needs Review", stateDate: "", documents: "1/1 file(s)", dueDate: "October 25, 2025 9:09 AM", actions: "REVIEW", documentUrl: doc2 },
+                    { team: "Underwriting", assignedTo: "Jan Elijah Pilares", task: "Finance contract generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 8:42 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc3 },
                     { team: "Underwriting", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 8:42 PM", documents: "-", dueDate: "-", },
                     { team: "Underwriting", assignedTo: "ASSIGN ADVISOR", task: "Upload unsigned contract", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 25, 2025 4:33 AM", documents: "-", dueDate: "-", },
                     { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Contract signing", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 25, 2025 5:09 AM", documents: "-", dueDate: "-", },
@@ -87,7 +102,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "1/1 file(s)", dueDate: "-", }
+                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 }
                 ]
             },
             {
@@ -102,7 +117,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Proof of insurance", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 24, 2025 6:49 PM", documents: "1/1 file(s)", dueDate: "-", }
+                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Proof of insurance", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 24, 2025 6:49 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc2 }
                 ]
             },
              {
@@ -165,7 +180,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -175,10 +190,10 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-"},
+                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc2},
                     { team: "Accounting", assignedTo: "Khushi Patel", task: "Upload Signed Bill of Sale (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasWarning: true},
                     { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale Generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-"},
-                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-"},
+                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc3},
                 ]
             },
             {
@@ -187,7 +202,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Void Cheque or Direct Deposit Form (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
                     { team: "Accounting", assignedTo: "Khushi Patel", task: "Prepare Customer Payment", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
                     { team: "Accounting", assignedTo: "Dishal Acharya", task: "Approve Customer Payment (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
@@ -199,7 +214,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Incomplete',
                 statusColor: 'text-blue-500',
                 tasks: [
-                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", }
+                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", documentUrl: doc2 }
                 ]
             },
             {
@@ -217,8 +232,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true },
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc3 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Lien Check (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Proof of Ownership (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                 ]
@@ -229,8 +244,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true },
-                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc2 },
+                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc3 },
                 ],
                 footerLink: "VIEW DELETED TASKS"
             },
@@ -238,12 +253,78 @@ const orderData: { [key: string]: any } = {
     }
 };
 
+function DocumentViewer({
+  imageUrl,
+  isOpen,
+  onClose,
+}: {
+  imageUrl: string;
+  isOpen: boolean;
+  onClose: () => void;
+}) {
+  const [scale, setScale] = React.useState(1);
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
+  const imgRef = React.useRef<HTMLImageElement>(null);
+
+  const handleWheel = (e: React.WheelEvent) => {
+    if (e.deltaY < 0) {
+      setScale((s) => Math.min(s + 0.1, 3));
+    } else {
+      setScale((s) => Math.max(s - 0.1, 0.5));
+    }
+  };
+
+  React.useEffect(() => {
+    // Reset on open
+    if (isOpen) {
+      setScale(1);
+      setPosition({ x: 0, y: 0 });
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-4xl h-[90vh] bg-card/80 backdrop-blur-sm p-0 flex flex-col">
+        <div className="flex-shrink-0 flex items-center justify-end p-2 space-x-2 bg-card/50">
+           <Button variant="ghost" size="icon" onClick={() => setScale(s => Math.max(s - 0.2, 0.5))}>
+             <ZoomOut className="h-5 w-5" />
+           </Button>
+           <Button variant="ghost" size="icon" onClick={() => setScale(s => Math.min(s + 0.2, 3))}>
+             <ZoomIn className="h-5 w-5" />
+           </Button>
+           <Button variant="ghost" size="icon" onClick={onClose}>
+             <X className="h-5 w-5" />
+           </Button>
+        </div>
+        <div className="flex-grow overflow-auto" onWheel={handleWheel}>
+          <div
+            className="flex items-center justify-center w-full h-full p-4"
+          >
+            <Image
+              ref={imgRef}
+              src={imageUrl}
+              alt="Document"
+              width={800}
+              height={1100}
+              className="object-contain transition-transform duration-200"
+              style={{ transform: `scale(${scale})` }}
+            />
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 
 export default function OrderDetailsPage({
   params,
 }: {
   params: { orderId: string };
 }) {
+  const [viewingImage, setViewingImage] = React.useState<string | null>(null);
   const data = orderData[params.orderId];
 
   if (!data) {
@@ -252,6 +333,11 @@ export default function OrderDetailsPage({
 
   return (
     <div className="text-white space-y-6">
+      <DocumentViewer 
+        isOpen={!!viewingImage}
+        onClose={() => setViewingImage(null)}
+        imageUrl={viewingImage || ''}
+      />
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm">
           <Link href="/dashboard" className="text-primary hover:underline">
@@ -372,9 +458,9 @@ export default function OrderDetailsPage({
                                         {task.stateDate && <div className="text-muted-foreground text-xs">{task.stateDate}</div>}
                                     </TableCell>
                                     <TableCell>
-                                        {task.documents !== "-" ? 
-                                        <Link href="#" className="text-primary hover:underline">{task.documents}</Link> 
-                                        : "-"}
+                                        {task.documentUrl ? 
+                                        <button onClick={() => setViewingImage(task.documentUrl)} className="text-primary hover:underline">{task.documents}</button> 
+                                        : task.documents}
                                     </TableCell>
                                     <TableCell className={
                                         task.state === 'Needs Review' || (task.state === 'Incomplete' && task.dueDate) ? 'text-red-500' : ''
