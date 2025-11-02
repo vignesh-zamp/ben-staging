@@ -34,6 +34,12 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const doc1 = PlaceHolderImages.find((img) => img.id === 'document-1')?.imageUrl || '';
 const doc2 = PlaceHolderImages.find((img) => img.id === 'document-2')?.imageUrl || '';
 const doc3 = PlaceHolderImages.find((img) => img.id === 'document-3')?.imageUrl || '';
+const doc4 = PlaceHolderImages.find((img) => img.id === 'document-4')?.imageUrl || '';
+const doc5 = PlaceHolderImages.find((img) => img.id === 'document-5')?.imageUrl || '';
+const doc6 = PlaceHolderImages.find((img) => img.id === 'document-6')?.imageUrl || '';
+const doc7 = PlaceHolderImages.find((img) => img.id === 'document-7')?.imageUrl || '';
+const doc8 = PlaceHolderImages.find((img) => img.id === 'document-8')?.imageUrl || '';
+const doc9 = PlaceHolderImages.find((img) => img.id === 'document-9')?.imageUrl || '';
 
 
 const orderData: { [key: string]: any } = {
@@ -78,7 +84,7 @@ const orderData: { [key: string]: any } = {
                 tasks: [
                     { team: "Underwriting", assignedTo: "Christian Volfson", task: "Submit to lender", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "-", dueDate: "-", hasWarning: false, },
                     { team: "Underwriting", assignedTo: "ASSIGN ADVISOR", task: "Finance application", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 7:02 AM", documents: "-", dueDate: "-", hasWarning: false, },
-                    { team: "Underwriting", assignedTo: "Abhi Shetty", task: "Finance stipulation verification", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "1/1 file(s)", dueDate: "-", hasWarning: true, documentUrl: doc1 },
+                    { team: "Underwriting", assignedTo: "Abhi Shetty", task: "Finance stipulation verification", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "1/1 file(s)", dueDate: "-", hasWarning: true, documentUrl: doc4 },
                     { team: "In-sale", assignedTo: "Christian Volfson", task: "Communicate decision to customer", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "-", dueDate: "-", hasWarning: false, },
                     { team: "Underwriting", assignedTo: "Christian Volfson", task: "Verify financing complete", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 6:48 PM", documents: "-", dueDate: "-", hasWarning: false, }
                 ]
@@ -89,8 +95,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Incomplete',
                 statusColor: 'text-blue-500',
                 tasks: [
-                    { team: "Deal fund", assignedTo: "Piranave Chandraphalan", task: "Verify and send BOS", badge: "INT", badgeColor: "bg-red-500", state: "Needs Review", stateDate: "", documents: "1/1 file(s)", dueDate: "October 25, 2025 9:09 AM", actions: "REVIEW", documentUrl: doc2 },
-                    { team: "Underwriting", assignedTo: "Jan Elijah Pilares", task: "Finance contract generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 8:42 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc3 },
+                    { team: "Deal fund", assignedTo: "Piranave Chandraphalan", task: "Verify and send BOS", badge: "INT", badgeColor: "bg-red-500", state: "Needs Review", stateDate: "", documents: "1/1 file(s)", dueDate: "October 25, 2025 9:09 AM", actions: "REVIEW", documentUrl: doc5 },
+                    { team: "Underwriting", assignedTo: "Jan Elijah Pilares", task: "Finance contract generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 8:42 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc6 },
                     { team: "Underwriting", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 24, 2025 8:42 PM", documents: "-", dueDate: "-", },
                     { team: "Underwriting", assignedTo: "ASSIGN ADVISOR", task: "Upload unsigned contract", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "October 25, 2025 4:33 AM", documents: "-", dueDate: "-", },
                     { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Contract signing", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 25, 2025 5:09 AM", documents: "-", dueDate: "-", },
@@ -102,7 +108,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 }
+                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 22, 2025 9:02 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc7 }
                 ]
             },
             {
@@ -117,7 +123,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Proof of insurance", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 24, 2025 6:49 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc2 }
+                    { team: "In-sale", assignedTo: "Christian Volfson", task: "Proof of insurance", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "October 24, 2025 6:49 PM", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc8 }
                 ]
             },
              {
@@ -202,7 +208,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc4 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Void Cheque or Direct Deposit Form (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
                     { team: "Accounting", assignedTo: "Khushi Patel", task: "Prepare Customer Payment", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
                     { team: "Accounting", assignedTo: "Dishal Acharya", task: "Approve Customer Payment (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
@@ -214,7 +220,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Incomplete',
                 statusColor: 'text-blue-500',
                 tasks: [
-                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", documentUrl: doc2 }
+                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", documentUrl: doc5 }
                 ]
             },
             {
@@ -232,8 +238,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc3 },
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc6 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc7 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Lien Check (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Proof of Ownership (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
                 ]
@@ -244,8 +250,8 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc2 },
-                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc3 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc8 },
+                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc9 },
                 ],
                 footerLink: "VIEW DELETED TASKS"
             },
