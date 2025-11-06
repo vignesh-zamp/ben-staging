@@ -39,12 +39,7 @@ export const columns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => {
       const task = row.original;
-      let link = '#';
-      if (task.id === 'TASK-7878') {
-        link = `/dashboard/order/C-KKZ9X4MH`;
-      } else if (task.id === 'TASK-9101') {
-        link = `/dashboard/order/C-YRSRVHD6`;
-      }
+      let link = `/dashboard/order/${task.order}`;
       return (
         <Link href={link} className="font-medium text-primary hover:underline whitespace-nowrap">
           {row.getValue('task')}
@@ -86,7 +81,7 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Order" />
     ),
     cell: ({ row }) => (
-        <Link href="#" className="text-primary hover:underline flex items-center gap-1">
+        <Link href={`/dashboard/order/${row.getValue('order')}`} className="text-primary hover:underline flex items-center gap-1">
             <LinkIcon className="h-3 w-3" />
             {row.getValue('order')}
         </Link>
@@ -105,12 +100,7 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       const customer = row.getValue('customer') as {name: string, email: string};
       const task = row.original;
-      let link = '#';
-      if (task.id === 'TASK-7878') {
-        link = `/dashboard/order/C-KKZ9X4MH`;
-      } else if (task.id === 'TASK-9101') {
-          link = `/dashboard/order/C-YRSRVHD6`;
-      }
+      let link = `/dashboard/order/${task.order}`;
       return (
         <Link href={link} className="text-primary hover:underline whitespace-nowrap">
           {customer.name}
