@@ -50,10 +50,10 @@ const orderData: { [key: string]: any } = {
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '19/23',
-            deliveryDays: '-18 days',
-            pendingDays: '21 days',
-            lastActivity: '3 days',
+            completed: '20/23',
+            deliveryDays: '-5 days',
+            pendingDays: '30 days',
+            lastActivity: '5 days',
         },
         sections: [
              {
@@ -228,10 +228,10 @@ const orderData: { [key: string]: any } = {
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '19/23',
-            deliveryDays: '-18 days',
-            pendingDays: '21 days',
-            lastActivity: '3 days',
+            completed: '15/23',
+            deliveryDays: '-10 days',
+            pendingDays: '15 days',
+            lastActivity: '1 day',
         },
         sections: [
              {
@@ -317,10 +317,10 @@ const orderData: { [key: string]: any } = {
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '19/23',
-            deliveryDays: '-18 days',
-            pendingDays: '21 days',
-            lastActivity: '3 days',
+            completed: '18/23',
+            deliveryDays: '-25 days',
+            pendingDays: '28 days',
+            lastActivity: '2 days',
         },
         sections: [
              {
@@ -406,10 +406,10 @@ const orderData: { [key: string]: any } = {
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '19/23',
-            deliveryDays: '-18 days',
-            pendingDays: '21 days',
-            lastActivity: '3 days',
+            completed: '12/23',
+            deliveryDays: '-3 days',
+            pendingDays: '10 days',
+            lastActivity: '4 days',
         },
         sections: [
              {
