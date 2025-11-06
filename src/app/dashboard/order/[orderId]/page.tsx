@@ -169,7 +169,7 @@ const orderData: { [key: string]: any } = {
         ]
     },
     'C-YRSRVHD6': {
-        customerName: 'Alison Mullen',
+        customerName: 'Christopher Merjanian',
         stock: '72590',
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
