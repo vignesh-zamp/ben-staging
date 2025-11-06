@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect } from 'react';
+import { useFormStatus } from 'react-dom';
 import Link from 'next/link';
 
 import { authenticate, type FormState } from '@/app/actions';
@@ -8,7 +9,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { useEffect } from 'react';
 
 function LoginButton() {
   const { pending } = useFormStatus();
@@ -20,7 +20,7 @@ function LoginButton() {
 }
 
 export function LoginForm() {
-  const [state, dispatch] = useFormState<FormState | undefined, FormData>(
+  const [state, dispatch] = useActionState<FormState | undefined, FormData>(
     authenticate,
     undefined
   );
@@ -46,7 +46,7 @@ export function LoginForm() {
           type="email"
           placeholder="john@clutch.com"
           required
-          defaultValue="john@clutch.com"
+          defaultValue="benjamin@example.com"
           className="bg-white text-black"
         />
       </div>
