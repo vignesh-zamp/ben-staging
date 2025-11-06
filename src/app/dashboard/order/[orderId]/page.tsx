@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import * as React from 'react';
@@ -42,18 +41,17 @@ const doc7 = PlaceHolderImages.find((img) => img.id === 'document-7')?.imageUrl 
 const doc8 = PlaceHolderImages.find((img) => img.id === 'document-8')?.imageUrl || '';
 const doc9 = PlaceHolderImages.find((img) => img.id === 'document-9')?.imageUrl || '';
 
-
-const orderData: { [key: string]: any } = {
+const initialOrderData: { [key: string]: any } = {
     'C-KKZ9X4MH': {
         customerName: 'Michael Smith',
         stock: '94221',
         status: 'BOS Sent',
         statusColor: 'bg-blue-500 text-white',
         stats: {
-            completed: '20/23',
-            deliveryDays: '-5 days',
-            pendingDays: '30 days',
-            lastActivity: '5 days',
+            completed: '18/23',
+            deliveryDays: '-12 days',
+            pendingDays: '25 days',
+            lastActivity: '8 days',
         },
         sections: [
              {
@@ -62,7 +60,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -151,7 +149,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -240,7 +238,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -329,7 +327,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -418,7 +416,7 @@ const orderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -490,6 +488,27 @@ const orderData: { [key: string]: any } = {
         ]
     }
 };
+
+function TaskStatusButton({ task, onStatusChange }: { task: any, onStatusChange: () => void }) {
+    if (task.state === 'Incomplete') {
+        return <div className="text-blue-500">{task.state}</div>;
+    }
+
+    if (task.state === 'Complete') {
+        return <div className="text-green-500">{task.state}</div>;
+    }
+
+    // Otherwise, it's 'Pending Verification'
+    return (
+        <Button 
+            size="sm"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black h-auto py-1 px-3 text-xs"
+            onClick={onStatusChange}
+        >
+            {task.state}
+        </Button>
+    );
+}
 
 function DocumentViewer({
   imageUrl,
@@ -563,7 +582,20 @@ export default function OrderDetailsPage({
   params: { orderId: string };
 }) {
   const [viewingImage, setViewingImage] = React.useState<string | null>(null);
+  const [orderData, setOrderData] = React.useState(initialOrderData);
+
   const data = orderData[params.orderId];
+
+  const handleStatusChange = (sectionIndex: number, taskIndex: number) => {
+    setOrderData(prevData => {
+        const newData = JSON.parse(JSON.stringify(prevData)); // Deep copy
+        const task = newData[params.orderId].sections[sectionIndex].tasks[taskIndex];
+        if (task.state === 'Pending Verification') {
+            task.state = 'Complete';
+        }
+        return newData;
+    });
+  };
 
   if (!data) {
     notFound();
@@ -642,8 +674,8 @@ export default function OrderDetailsPage({
         </Link>
       </div>
       
-      {data.sections.map((section: any, index: number) => (
-        <div key={index} className="rounded-lg bg-card border border-border">
+      {data.sections.map((section: any, sectionIndex: number) => (
+        <div key={sectionIndex} className="rounded-lg bg-card border border-border">
             <div className="flex items-center justify-between p-4 bg-muted/20 rounded-t-lg">
                 <h2 className="font-semibold text-white">{section.title}</h2>
                  <div className={`flex items-center gap-2 text-sm font-semibold ${section.statusColor || 'text-muted-foreground'}`}>
@@ -688,11 +720,10 @@ export default function OrderDetailsPage({
                                         </div>
                                     </TableCell>
                                     <TableCell>
-                                        <div className={
-                                            task.state === 'Complete' ? 'text-green-500' :
-                                            task.state === 'Needs Review' ? 'text-blue-500' :
-                                            'text-blue-500'
-                                        }>{task.state}</div>
+                                        <TaskStatusButton 
+                                            task={task}
+                                            onStatusChange={() => handleStatusChange(sectionIndex, taskIndex)}
+                                        />
                                         {task.stateDate && <div className="text-muted-foreground text-xs">{task.stateDate}</div>}
                                     </TableCell>
                                     <TableCell>
