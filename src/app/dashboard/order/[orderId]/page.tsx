@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import * as React from 'react';
@@ -42,95 +43,6 @@ const doc8 = PlaceHolderImages.find((img) => img.id === 'document-8')?.imageUrl 
 const doc9 = PlaceHolderImages.find((img) => img.id === 'document-9')?.imageUrl || '';
 
 const initialOrderData: { [key: string]: any } = {
-    'C-KKZ9X4MH': {
-        customerName: 'Michael Smith',
-        stock: '94221',
-        status: 'BOS Sent',
-        statusColor: 'bg-blue-500 text-white',
-        stats: {
-            completed: '18/23',
-            deliveryDays: '-12 days',
-            pendingDays: '25 days',
-            lastActivity: '8 days',
-        },
-        sections: [
-             {
-                title: 'Identity',
-                completed: '2/2',
-                status: 'Complete',
-                statusColor: 'text-green-500',
-                tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
-                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
-                ]
-            },
-            {
-                title: 'Contract Signing',
-                completed: '4/4',
-                status: 'Complete',
-                statusColor: 'text-green-500',
-                tasks: [
-                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc2},
-                    { team: "Accounting", assignedTo: "Khushi Patel", task: "Upload Signed Bill of Sale (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasWarning: true},
-                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale Generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-"},
-                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc3},
-                ]
-            },
-            {
-                title: 'Payment',
-                completed: '4/4',
-                status: 'Complete',
-                statusColor: 'text-green-500',
-                tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc4 },
-                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Void Cheque or Direct Deposit Form (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
-                    { team: "Accounting", assignedTo: "Khushi Patel", task: "Prepare Customer Payment", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
-                    { team: "Accounting", assignedTo: "Dishal Acharya", task: "Approve Customer Payment (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
-                ]
-            },
-            {
-                title: 'Ancillary Products',
-                completed: '0/1',
-                status: 'Incomplete',
-                statusColor: 'text-blue-500',
-                tasks: [
-                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", documentUrl: doc5 }
-                ]
-            },
-            {
-                title: 'Deal Verification',
-                completed: '1/1',
-                status: 'Complete',
-                statusColor: 'text-green-500',
-                tasks: [
-                    { team: "Market supply", assignedTo: "ASSIGN ADVISOR", task: "Verify Carfax", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
-                ]
-            },
-            {
-                title: 'Vehicle Documents',
-                completed: '4/4',
-                status: 'Complete',
-                statusColor: 'text-green-500',
-                tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc8 },
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc7 },
-                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Lien Check (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
-                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Proof of Ownership (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
-                ]
-            },
-             {
-                title: 'Corporate Information',
-                completed: '2/2',
-                status: 'Complete',
-                statusColor: 'text-green-500',
-                tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc8 },
-                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc9 },
-                ],
-                footerLink: "VIEW DELETED TASKS"
-            },
-        ]
-    },
     'C-YRSRVHD6': {
         customerName: 'Christopher Merjanian',
         stock: '72590',
@@ -149,7 +61,7 @@ const initialOrderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/image10.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -238,7 +150,96 @@ const initialOrderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/image10.png" },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
+                ]
+            },
+            {
+                title: 'Contract Signing',
+                completed: '4/4',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Stephen Zhang", task: "APV9T Signed Form", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc2},
+                    { team: "Accounting", assignedTo: "Khushi Patel", task: "Upload Signed Bill of Sale (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasWarning: true},
+                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Bill of Sale Generation", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-"},
+                    { team: "Acquisition", assignedTo: "ASSIGN ADVISOR", task: "Upload Signed Bill of Sale", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc3},
+                ]
+            },
+            {
+                title: 'Payment',
+                completed: '4/4',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Void Cheque or Direct Deposit Form", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc4 },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Void Cheque or Direct Deposit Form (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
+                    { team: "Accounting", assignedTo: "Khushi Patel", task: "Prepare Customer Payment", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
+                    { team: "Accounting", assignedTo: "Dishal Acharya", task: "Approve Customer Payment (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
+                ]
+            },
+            {
+                title: 'Ancillary Products',
+                completed: '0/1',
+                status: 'Incomplete',
+                statusColor: 'text-blue-500',
+                tasks: [
+                    { team: "Customer", assignedTo: "ASSIGN ADVISOR", task: "Supporting Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Incomplete", stateDate: "", documents: "0/1 file(s)", dueDate: "October 21, 2025 7:30 AM", documentUrl: doc5 }
+                ]
+            },
+            {
+                title: 'Deal Verification',
+                completed: '1/1',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Market supply", assignedTo: "ASSIGN ADVISOR", task: "Verify Carfax", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
+                ]
+            },
+            {
+                title: 'Vehicle Documents',
+                completed: '4/4',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Proof of Ownership", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc6 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Lien Check", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc7 },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Lien Check (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Proof of Ownership (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", hasNote: true },
+                ]
+            },
+             {
+                title: 'Corporate Information',
+                completed: '2/2',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Articles of Incorporation", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, documentUrl: doc8 },
+                    { team: "Acquisition", assignedTo: "Junaid Khan", task: "HST Government Document", badge: "EXT", badgeColor: "bg-blue-500", state: "Complete", stateDate: "", documents: "1/1 file(s)", dueDate: "-", hasNote: true, hasWarning: true, documentUrl: doc9 },
+                ],
+                footerLink: "VIEW DELETED TASKS"
+            },
+        ]
+    },
+    'C-KKZ9X4MH': {
+        customerName: 'Michael Smith',
+        stock: '94221',
+        status: 'BOS Sent',
+        statusColor: 'bg-blue-500 text-white',
+        stats: {
+            completed: '18/23',
+            deliveryDays: '-12 days',
+            pendingDays: '25 days',
+            lastActivity: '8 days',
+        },
+        sections: [
+             {
+                title: 'Identity',
+                completed: '2/2',
+                status: 'Complete',
+                statusColor: 'text-green-500',
+                tasks: [
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/image10.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -327,7 +328,7 @@ const initialOrderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/image10.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
@@ -416,7 +417,7 @@ const initialOrderData: { [key: string]: any } = {
                 status: 'Complete',
                 statusColor: 'text-green-500',
                 tasks: [
-                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: doc1 },
+                    { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/image10.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", }
                 ]
             },
