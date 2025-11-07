@@ -241,7 +241,7 @@ const initialOrderData: { [key: string]: any } = {
                 tasks: [
                     { team: "Acquisition", assignedTo: "Shyda Gonzales", task: "Drivers License Verification", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/DL3.png" },
                     { team: "Acquisition", assignedTo: "Khushi Patel", task: "Drivers License Verification (second approval)", badge: "INT", badgeColor: "bg-red-500", state: "Complete", stateDate: "", documents: "-", dueDate: "-", },
-                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Passport", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/passport.png" }
+                    { team: "Acquisition", assignedTo: "Khushi Patel", task: "Passport", badge: "EXT", badgeColor: "bg-blue-500", state: "Pending Verification", stateDate: "", documents: "1/1 file(s)", dueDate: "-", documentUrl: "/Passport.png" }
                 ]
             },
             {
